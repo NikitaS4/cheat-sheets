@@ -1,0 +1,115 @@
+\centering
+\begin{tabular}{|cc|c|}
+	\multicolumn{3}{c}{Вид оператора Лапласа в других с. к.} \\
+	\hline
+	Цилиндрические координаты & $(r, \phi, z)$ & $\Delta u = \cfrac{1}{r}\cfrac{\partial}{\partial r} \left(r \cfrac{\partial u}{\partial r}\right) + \cfrac{1}{r^2}\cfrac{\partial^2 u}{\partial \phi^2} + \cfrac{\partial^2 u}{\partial z}$ \\
+	\hline
+	Полярные координаты & $(r, \phi)$ & $\Delta u = \cfrac{1}{r}\cfrac{\partial}{\partial r} \left(r \cfrac{\partial u}{\partial r}\right) + \cfrac{1}{r^2}\cfrac{\partial^2 u}{\partial \phi^2}$ \\
+	\hline
+	Сферические координаты & $(r, \theta, \phi)$ & $\Delta u = \cfrac{1}{r^2}\left[\cfrac{\partial}{\partial r}\left(r^2\cfrac{\partial u}{\partial r}\right) + \cfrac{1}{\sin\theta}\cfrac{1}{\partial\theta}\left(\sin\theta\cfrac{\partial u}{\partial\theta}\right) + \cfrac{1}{\sin^2\theta}\cfrac{\partial^2u}{\partial\phi^2}\right]$ \\
+	\hline
+\end{tabular}
+
+\vspace{3ex}
+
+\begin{tabular}{|cc|}
+	\multicolumn{2}{c}{Основные уравнения в частных производных} \\
+	\hline
+	Волновое уравнение (струна) & $u_{tt}-v^2u_{xx}=f(x,t)$ \\
+	\hline
+	Уравнение теплопроводности & $u_t - \alpha\Delta u = f(x,t)$ \\
+	\hline
+	Уравнение Лапласа & $\Delta u = 0$ \\
+	\hline
+\end{tabular}
+
+\vspace{3ex}
+
+Краевые условия:
+
+\begin{tabular}{|cc|}
+	\hline
+	1 рода & $u|_{\partial D} = g_1(x), x \in \partial D$ \\
+	\hline
+	2 рода & $\cfrac{\partial u}{\partial n}|_{\partial D} = g_2(x), x \in \partial D$ \\
+	\hline
+	3 рода & $\left(\cfrac{\partial u}{\partial n} + hu\right)|_{\partial D} = g_3(x), x \in \partial D, h(x) > 0$ \\
+	\hline
+	Теплообмен по закону Ньютона & $\left(\cfrac{\partial T}{\partial n} + hT\right)|_{\partial D} = hT_{\text{ср.}}$ \\
+	\hline
+\end{tabular}
+
+Уравнение Бесселя порядка $\nu$:
+
+\[
+\cfrac{1}{z}(zw')'+\left(1 - \cfrac{\nu^2}{z^2}\right)w = 0
+\]
+
+Рекурентные соотношения между функциями Бесселя:
+
+\begin{itemize}
+	\item $\cfrac{d}{dx}\left(\cfrac{J_{\nu}(x)}{x^{\nu}}\right) = -\cfrac{J_{\nu+1}(x)}{x^{\nu}}$
+	\item $\nu = 0 \Rightarrow J_0'(x) = -J_1(x)$
+	\item $\cfrac{d}{dx}\left(x^{\nu}J_{\nu}(x)\right) = x^{\nu}J_{\nu - 1}(x)$
+	\item $\nu = 1 \Rightarrow xJ_1(x) = \int\limits_0^x yJ_0(y)dy$
+	\item $J_{\nu+1}(x) = \cfrac{2\nu}{x}J_{\nu}(x) - J_{\nu - 1}(x)$
+\end{itemize}
+
+Функция Вебера порядка $\nu$:
+
+\[
+Y_{\nu}(z) = \cfrac{\cos \pi\nu \cdot J_{\nu}(z) - J_{-\nu}(z)}{\sin \pi \nu}
+\]
+
+Общее решение уравнения Бесселя:
+
+\[
+u(x) = C_1J_{\nu}(x) + C_2Y_{\nu}(x)
+\]
+
+\newpage
+
+Уравнение Бесселя с параметром $\lambda \ne 0 \in \mathds{C}$:
+
+\[
+\cfrac{1}{x}(xu')'+(\lambda - \cfrac{\nu^2}{x^2})u = 0
+\]
+
+Решается заменой: $y = \sqrt{\lambda}x \Rightarrow \cfrac{1}{y}(yv')'+\left(1 - \cfrac{\nu^2}{y^2}\right)v=0$.
+
+Общее решение:
+
+\[
+u(x)=C_1J_{\nu}(x\sqrt{\lambda})+C_2Y_{\lambda}(x\sqrt{\lambda})
+\]
+
+Модифицированное уравнение Бесселя: $\lambda = -1$, то есть:
+
+\[
+\cfrac{1}{x}(xu')'-\left(1+\cfrac{\nu^2}{x^2}\right)u = 0
+\]
+
+Общее решение:
+
+\[
+u(x) = C_1I_{\nu}(x) + C_2K_{\nu}(x)
+\]
+
+Уравнение \eqref{BesselEq1}:
+
+\begin{equation}\label{BesselEq1}
+	\alpha J_{\nu}(\gamma) + \beta \gamma J_{\nu}'(\gamma) = 0, \alpha, \beta \ge 0, \alpha + \beta > 0
+\end{equation}
+
+Свойство ортогональности:
+
+\begin{itemize}
+	\item Пусть $\gamma_i, \gamma_j$ --- корни уравнения \eqref{BesselEq1}
+	
+	\item Тогда:
+	\[
+	\int\limits_0^1 xJ_{\nu}(\gamma_ix)J_{\nu}(\gamma_jx)dx = \cfrac{1}{2}\left[\left(J_{\nu}'(\gamma_i)\right)^2 + \left(1 - \cfrac{\nu^2}{\gamma_i^2}\right)J_{\nu}^2(\gamma_i)\right]\delta_{ij}
+	\]
+	
+	\item $\delta_{ij}$ --- символ Кронекера
+\end{itemize}
